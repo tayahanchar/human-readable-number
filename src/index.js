@@ -3,7 +3,6 @@ module.exports = function toReadable (number) {
     return 'zero';
   }
 
-  const hundred = 'hundred';
   const firstFigure = String(number)[0];
   const secondFigure = String(number)[1];
   const thirdFigure = String(number)[2];
@@ -49,16 +48,16 @@ module.exports = function toReadable (number) {
 
   for (const key in numbers) {
     if((+([secondFigure] + [thirdFigure])) === +key) {
-      return `${numbers[firstFigure]} ${hundred} ${numbers[key]}`
+      return `${numbers[firstFigure]} hundred ${numbers[key]}`
     }
   }
 
   if(secondFigure == 0) {
     if(thirdFigure == 0) {
-      return `${numbers[firstFigure]} ${hundred}`;
+      return `${numbers[firstFigure]} hundred`;
     }
-    return `${numbers[firstFigure]} ${hundred} ${numbers[thirdFigure]}`;
+    return `${numbers[firstFigure]} hundred ${numbers[thirdFigure]}`;
   }
 
-  return `${numbers[firstFigure]} ${hundred} ${numbers[secondFigure + 0]} ${numbers[thirdFigure]}`;
+  return `${numbers[firstFigure]} hundred ${numbers[secondFigure + 0]} ${numbers[thirdFigure]}`;
 }
